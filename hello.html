@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        .cont{
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .contt{
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #btn{
+            background-color:none;
+            width: 30%;
+            font-size: larger;
+            font-family: 'Franklin Gothic Medium';
+        }
+        .btn{
+            background-color:none;
+            width: 100%;
+            font-size: larger;
+            font-family: 'Franklin Gothic Medium';
+        }
+        #helloMessage{
+            color: cadetblue;
+            font-size: larger;
+            font-family: 'Franklin Gothic Medium';
+        }
+    </style>
+    <title>Blog</title>
+  </head>
+  <body>
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+    <div class="contt">
+        <div id="helloMessage"></div>
+      <div class="cont">
+    <textarea name="textarea" cols="10" rows="10" class="w-50"></textarea>
+  </div>
+  <button id="btn">submit</button>
+  <div id="blog"></div>
+</div>
+    <script>
+        if(!sessionStorage.getItem('User')){
+            window.location.href='login.html'
+            exit()
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+        const userName = params.get("name");
+            if (userName) {
+              const helloMessage = document.getElementById("helloMessage");
+              helloMessage.innerText = `Hello, ${userName}!`;
+              }
+             });
+CKEDITOR.replace('textarea');
+let blog = document.getElementById("blog");
+let btn = document.getElementById("btn");
+btn.addEventListener("click", () => {
+    let texterea = CKEDITOR.instances.textarea.getData();
+    let newParagraph = document.createElement("p");
+    newParagraph.innerHTML = texterea;
+    let deleteBtn = document.createElement("button");
+    deleteBtn.className = "btn";
+    deleteBtn.innerHTML = "Delete";
+    deleteBtn.addEventListener("click", function() {
+        newParagraph.innerHTML = "";
+        deleteBtn.remove();
+    });
+    blog.appendChild(newParagraph);
+    blog.appendChild(deleteBtn);
+});
+
+    </script>
+  </body>
+</html>

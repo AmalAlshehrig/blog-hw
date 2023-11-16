@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Just an image -->
+    <nav class="navbar navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="data:image/png;base64,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"
+            height="40"
+            alt="MDB Logo"
+            loading="lazy"
+          />
+        </a>
+      </div>
+    </nav>
+
+    <header>
+      <!-- Background image -->
+      <div
+        class="p-5 text-center bg-image"
+        style="
+          background-image: url('https://wallpaper.dog/large/5518347.jpg');
+          height: 84vh;
+        "
+      >
+        <div class="mask">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+              <h1 class="mb-3">My LogIn</h1>
+
+              <a
+                class="btn btn-outline-light me-3 btn-lg"
+                href="siginup.html"
+                role="button"
+                >SingUp
+              </a>
+              <a
+                class="btn btn-outline-light btn-lg"
+                href="login.html"
+                role="button"
+                >Login
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Background image -->
+      <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3">© 2023</div>
+      </footer>
+    </header>
+  </body>
+
+  <!-- MDB -->
+  <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"
+  ></script>
+</html>
